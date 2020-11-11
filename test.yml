@@ -15,6 +15,6 @@
       register: jstackOut
 
     - name: write jstack                                                                                
-     copy:                                                                                              
-       content: "{{jstackOut.stdout}}" 
-       dest: /opt/f.txt
+      copy:                                                                                              
+        content: "{{jstackOut.stdout}}" 
+        dest: /opt/f.txt
