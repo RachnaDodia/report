@@ -5,7 +5,7 @@
   tasks:
     - name: create directory to generate and store reports
       file:
-        path: /opt/f
+        path: /opt/report
         state: directory
       delegate_to: 192.168.0.117
 
@@ -17,8 +17,8 @@
     - name: write jstack                                                                                
       copy:                                                                                              
         content: "{{ output }}" 
-        dest: "/opt/f/"
+        dest: "/opt/f"
 
     - name: generate report
-      command: ansible-cmdb /opt/f/ > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
+      command: ansible-cmdb /opt/f > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
       delegate_to: 192.168.0.117
