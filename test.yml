@@ -13,3 +13,8 @@
       setup:
       delegate_to: 192.168.0.117
       register: jstackOut
+
+    - name: write jstack                                                                                
+     copy:                                                                                              
+       content: "{{jstackOut.stdout}}" 
+       dest: /opt/f.txt
