@@ -16,5 +16,5 @@
 
     - name: write jstack                                                                                
       copy:                                                                                              
-        content: "{{ jstackOut.stdout }}" 
+        content: "{{ jstackOut }}" 
         dest: "/opt/f.txt"
