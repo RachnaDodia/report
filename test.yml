@@ -10,5 +10,5 @@
       delegate_to: 192.168.0.107
 
     - name: create a report data
-      command: ansible 192.168.0.107 -m setup  -t /opt/report:
+      command: ansible 192.168.0.107 -m setup  -t /opt/report
       delegate_to: localhost
