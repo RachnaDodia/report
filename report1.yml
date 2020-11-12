@@ -41,6 +41,7 @@
       copy:
        src: /opt/report/system-overview.html
        dest: /var/www/html/system-overview.html
+       remote_src: true
    
     - name: firewalld enabled and running
       service:
