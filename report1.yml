@@ -24,7 +24,7 @@
         regexp: '\"failed\"\: false\, \"changed\"\: false\,\ '
        
     - name: generate report
-      shell: ansible-cmdb /opt/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
+      shell: ansible-cmdb /opt/report > /opt/report/system-overview.html
       delegate_to: 192.168.0.117
       
     - name: latest version of httpd installed
@@ -39,7 +39,7 @@
     
     - name: test html page is installed
       copy:
-       src: /opt/report/system-overview*
+       src: /opt/report/system-overview.html
        dest: /var/www/html/system-overview.html
    
     - name: firewalld enabled and running
