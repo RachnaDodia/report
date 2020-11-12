@@ -20,9 +20,43 @@
         dest: "/opt/report/f"
         
     - replace:
-       path: /opt/report/f
-       regexp: '\"failed\"\: false\, \"changed\"\: false\,\ '
+        path: /opt/report/f
+        regexp: '\"failed\"\: false\, \"changed\"\: false\,\ '
        
     - name: generate report
       shell: ansible-cmdb /opt/report > /opt/report/system-overview.$(date +%Y%m%d%H%M%S).html
       delegate_to: 192.168.0.117
+      
+    - name: latest version of httpd installed
+      yum:
+       name: httpd
+       state: latest
+   
+    - name: latest version of firewalld installed
+      yum:
+       name: firewalld
+       state: latest
+    
+    - name: test html page is installed
+      copy:
+       src: /opt/report/system-overview*
+       dest: /var/www/html/system-overview.html
+   
+    - name: firewalld enabled and running
+      service:
+        name: firewalld
+        enabled: true
+        state: started
+    
+    - name: firewalld permits http service
+      firewalld:
+       service: http
+       permanent: true
+       state: enabled
+       immediate: yes
+   
+    - name: httpd enabled and running
+      service:
+       name: httpd
+       enabled: true
+       state: started
