@@ -1,0 +1,5 @@
+---
+- name: Enable intranet services
+  hosts: all
+  tasks:
+   - command: pwd
