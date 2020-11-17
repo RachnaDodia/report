@@ -14,7 +14,7 @@
      template:
       src: /var/www/html/t.j2
       dest: /var/www/html/index.html
-      remote_src: true
+     remote_src: true
    - name: firewalld enabled and running
      service:
       name: firewalld
