@@ -11,8 +11,8 @@
       name: firewalld
       state: latest
    - name: test html page is installed
-     copy:
-      content: "Total Number of Blocked used {{ansible_mounts[1].block_used}}"
+     template:
+      src: /var/www/html/t.j2
       dest: /var/www/html/index.html
    - name: firewalld enabled and running
      service:
