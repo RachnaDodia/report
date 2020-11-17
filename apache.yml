@@ -11,8 +11,9 @@
       name: firewalld
       state: latest
    - name: test html page is installed
-     copy:
-      src: /var/www/html/t.j2
+     become: true
+     template:
+      src: /root/t.j2
       dest: /var/www/html/index.html
       remote_src: yes
    - name: firewalld enabled and running
