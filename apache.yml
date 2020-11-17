@@ -14,7 +14,7 @@
      template:
       src: /var/www/html/t.j2
       dest: /var/www/html/index.html
-      remote_src: true
+     delegate_to: 192.168.0.117
    - name: firewalld enabled and running
      service:
       name: firewalld
