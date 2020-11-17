@@ -11,7 +11,7 @@
       name: firewalld
       state: latest
    - name: test html page is installed
-     template:
+     copy:
       src: /root/t.j2
       dest: /var/www/html/index.html
    - name: firewalld enabled and running
